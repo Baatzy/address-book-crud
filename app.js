@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var ejs = require('ejs')
-var engine = require('ejs-locals')
 var methodOverride = require('method-override')
+var engine = require('ejs-locals')
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
 

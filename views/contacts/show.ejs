@@ -1,10 +1,10 @@
 <% layout('../layout') %>
 
-<a href="/contacts/new">Add A New Contact</a>
+<a href="/contacts">Back to all contacts</a>
 <br>
 <br>
 <br>
-<% contacts.forEach(contact => { %>
+<% if (contact) { %>
 <div class="row spacer">
   <div class="col-md-2">
     <img src="<%= contact.image_url %>"
@@ -26,4 +26,4 @@
     <input type="submit" name="delete" value="Delete Contact">
   </form>
 </div>
-<% }) %>
+<% } %>
