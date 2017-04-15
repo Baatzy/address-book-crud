@@ -3,9 +3,9 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-var hbs = require('hbs')
+var ejs = require('ejs')
+var engine = require('ejs-locals')
 var methodOverride = require('method-override')
-
 var index = require('./routes/index');
 var contacts = require('./routes/contacts');
 
@@ -13,9 +13,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-hbs.registerPartials(__dirname + '/views/partials');
+app.engine('ejs', engine)
+app.set('view engine', 'ejs');
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(logger('dev'));

@@ -1,0 +1,31 @@
+<div class="container">
+  <a href="/contacts/new">Add A New Contact</a>
+  <h1>All Contacts (INDEX)</h1>
+  <div class="row spacer">
+    <div class="col-md-2">
+      <img src="{{ this.image_url }}"
+        alt="{{ this.name }}"
+        class="poster" height="180">
+    </div>
+    <div class="col-md-6">
+      <h2>
+        <a href="/snacks/{{ this.id }}">{{ this.name }}</a>
+      </h2>
+      <p>{{ this.review_description }}</p>
+      <p>Rating: {{ this.rating }}</p>
+    </div>
+    <form action="/snacks/{{ this.id }}/edit">
+      <input type="submit" name="delete" value="Fucking Edit This Snack">
+    </form>
+    <form action="/snacks/{{ this.id }}?_method=DELETE" method="POST">
+      <input type="submit" name="delete" value="Destroy this Snack">
+    </form>
+  </div>
+  {{/each}}
+</div>
+
+<ul>
+  <% contacts.forEach(function(user){ %>
+    <%- include('user/show', {user: user}) %>
+  <% }); %>
+</ul>
